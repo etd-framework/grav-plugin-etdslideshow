@@ -1,0 +1,13 @@
+en:
+  PLUGINS:
+    ETDSLIDESHOW:
+      LOADJQUERY: Load jQuery
+      LOADTWTBSCSS: Load Twitter Bootstrap CSS
+      LOADTWTBSJS: Load Twitter Bootstrap JS
+
+fr:
+  PLUGINS:
+    ETDSLIDESHOW:
+      LOADJQUERY: Charger jQuery
+      LOADTWTBSCSS: Charger CSS du Bootstrap Twitter
+      LOADTWTBSJS: Charger Javascript du Bootstrap Twitter

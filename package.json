@@ -1,0 +1,43 @@
+{
+  "name": "@etd-framework/grav-plugin-etdslideshow",
+  "version": "0.1.0",
+  "description": "Grav plugin displaying a slideshow",
+  "homepage": "https://github.com/etd-framework/grav-plugin-etdslideshow",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/etd-framework/grav-plugin-etdslideshow.git"
+  },
+  "scripts": {
+    "css": "npm-run-all --sequential css-compile css-prefix",
+    "css-compile": "node-sass --include-path node_modules/bootstrap/scss --output-style expanded --source-map true --source-map-contents true --precision 6 scss/ -o css/",
+    "css-prefix": "postcss --config postcss.config.js --replace \"css/*.css\"",
+    "js": "npm-run-all --sequential js-concat",
+    "js-concat": "concat -o js/etdslideshow_twtbs.js node_modules/bootstrap/js/dist/util.js node_modules/bootstrap/js/dist/carousel.js js/custom.js",
+    "watch": "npm-run-all --parallel watch-css watch-js",
+    "watch-css": "nodemon --ignore js/ -e scss -x \"npm run css\"",
+    "watch-js": "nodemon --ignore scss/ --ignore --ignore js/etdslideshow_twtbs.js -e js -x \"npm run js\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.1.0",
+    "bootstrap": "^4.0.0",
+    "concat": "^1.0.3",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.17.1",
+    "npm-run-all": "^4.1.2",
+    "postcss-cli": "^5.0.0",
+    "rimraf": "^2.6.2"
+  },
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ]
+}

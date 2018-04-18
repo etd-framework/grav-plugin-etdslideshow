@@ -1,0 +1,45 @@
+{%- set js = "jQuery(document).ready(function($) {
+    $('#etdslideshow-" ~ hash ~ "').carousel({
+        interval: " ~ interval ~ ",
+        pause: " ~ pause ~ ",
+        wrap: " ~ wrap ~ ",
+        ride: " ~ ride ~ ",
+        keyboard: " ~ keyboard ~ "
+    });
+});" -%}
+
+{% do assets.addInlineJs(js, {'priority': 30, 'group': 'bottom'}) %}
+
+{% set content = content|split('<hr />') %}
+
+<div id="etdslideshow-{{ hash }}" class="carousel slide" data-ride="carousel">
+    {% if show_indicators|default(false) %}
+        <ol class="carousel-indicators">
+            {% for image in items %}
+            <li data-target="#etdslideshow-{{ hash }}" data-slide-to="0"{% if loop.first %} class="active"{% endif %}></li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+    <div class="carousel-inner">
+        {% for image in items %}
+        <div class="carousel-item{% if loop.first %} active{% endif %}">
+            <img class="d-block w-100" src="{{ image.cropResize(1260,840).url() }}" alt="{{ image.meta.alt }}">
+            {% if content[ loop.index0 ] is defined %}
+                <div class="carousel-caption">
+                    {{ content[ loop.index0 ]|raw }}
+                </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% if show_controls|default(false) %}
+        <a class="carousel-control-prev" href="#etdslideshow-{{ hash }}" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#etdslideshow-{{ hash }}" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    {% endif %}
+</div>

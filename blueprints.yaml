@@ -1,0 +1,60 @@
+name: Etdslideshow
+version: 0.1.0
+description: Grav plugin displaying a slideshow
+icon: columns
+author:
+  name: ETD Solutions
+  email: support@etd-solutions.com
+homepage: https://github.com/etd-solutions/grav-plugin-etdslideshow
+demo: https://github.com/etd-solutions/grav-plugin-etdslideshow
+keywords: grav, plugin, slideshow, carousel
+bugs: https://github.com/etd-solutions/grav-plugin-etdslideshow/issues
+docs: https://github.com/etd-solutions/grav-plugin-etdslideshow/blob/master/README.md
+license: MIT
+
+dependencies:
+  - shortcode-core
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    loadjquery:
+      type: toggle
+      label: PLUGINS.ETDSLIDESHOW.LOADJQUERY
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    loadtwtbsjs:
+      type: toggle
+      label: PLUGINS.ETDSLIDESHOW.LOADTWTBSJS
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    loadtwtbscss:
+      type: toggle
+      label: PLUGINS.ETDSLIDESHOW.LOADTWTBSCSS
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
